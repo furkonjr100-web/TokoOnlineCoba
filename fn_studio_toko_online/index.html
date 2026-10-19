@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FN STUDIO - Toko online untuk produk custom, cetak, dan aksesoris.">
+  <title>FN STUDIO — Belanja Mudah, Hidup Lebih Praktis</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <header class="site-header">
+    <div class="topbar container">
+      <a class="brand" href="#beranda" aria-label="FN Studio Beranda"><span>FN</span> STUDIO</a>
+      <form class="searchbar" id="search-form" role="search">
+        <span aria-hidden="true">⌕</span>
+        <input id="search-input" type="search" placeholder="Cari produk, nama, atau kode..." autocomplete="off" aria-label="Cari produk">
+        <button type="submit" aria-label="Cari">⌕</button>
+      </form>
+      <div class="header-actions">
+        <button class="text-button" id="account-button" type="button">♙ <span>Akun</span></button>
+        <button class="icon-button" id="favorites-toggle" type="button" aria-label="Lihat favorit">♡ <span class="tiny-count" id="favorite-count">0</span></button>
+        <button class="icon-button cart-trigger" id="cart-toggle" type="button" aria-label="Buka keranjang">🛒 <span class="count" id="cart-count">0</span></button>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Buka menu">☰</button>
+      </div>
+    </div>
+    <nav class="main-nav container" id="main-nav">
+      <a class="active" href="#beranda">Beranda</a><a href="#kategori">Kategori</a><a href="#produk">Produk</a><a href="#promo">Promo</a><a href="#tentang">Tentang Kami</a><a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="beranda">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="pulse"></span> TOKO ONLINE PILIHANMU</span>
+        <h1>Belanja Mudah,<br><span>Hidup Lebih Praktis.</span></h1>
+        <p>Temukan produk berkualitas untuk kebutuhan harian, cetak custom, dan gaya kamu. Pilihan tepat, harga bersahabat.</p>
+        <div class="hero-buttons"><a class="button primary" href="#produk">Belanja Sekarang <span>↗</span></a><a class="button secondary" href="#kategori">Jelajahi Kategori</a></div>
+        <div class="trust-row"><div><span class="trust-icon">✦</span><span><b>Produk Pilihan</b><small>Kualitas terjaga</small></span></div><div><span class="trust-icon">↗</span><span><b>Belanja Praktis</b><small>Pesan dengan mudah</small></span></div><div><span class="trust-icon">♡</span><span><b>Layanan Ramah</b><small>Siap membantu</small></span></div></div>
+      </div>
+      <div class="hero-art">
+        <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+        <div class="hero-glow"></div>
+        <div class="floating-card card-back">✦<small>NEW COLLECTION</small></div>
+        <div class="hero-product"><div class="bag-handle"></div><div class="bag-face"><span>FN</span><b>STUDIO</b><small>CREATE YOUR STYLE</small></div></div>
+        <div class="float-chip chip-one">✦ Produk pilihan</div><div class="float-chip chip-two">⚡ Belanja praktis</div>
+        <div class="hero-caption"><span class="caption-dot"></span><span>Temukan produk favoritmu</span><b>→</b></div>
+      </div>
+      <div class="hero-pagination"><i class="selected"></i><i></i><i></i></div>
+    </section>
+
+    <section class="benefits container">
+      <div><span class="benefit-icon">◇</span><span><b>Produk berkualitas</b><small>Dipilih dengan teliti</small></span></div>
+      <div><span class="benefit-icon">⌁</span><span><b>Pemesanan mudah</b><small>Langsung via WhatsApp</small></span></div>
+      <div><span class="benefit-icon">◎</span><span><b>Harga transparan</b><small>Tanpa biaya tersembunyi</small></span></div>
+      <div><span class="benefit-icon">☏</span><span><b>Bantuan pelanggan</b><small>Kami siap membantu</small></span></div>
+    </section>
+
+    <section class="section container" id="produk">
+      <div class="section-heading"><div><span class="eyebrow">PILIHAN UNTUKMU</span><h2>Produk <span>Terlaris</span> <span class="spark">✦</span></h2><p>Jelajahi koleksi favorit yang mungkin kamu suka.</p></div><a href="#produk" class="inline-link" id="show-all">Lihat semua produk ↗</a></div>
+      <div class="catalog-tools">
+        <div class="category-pills" id="category-pills">
+          <button class="pill active" data-category="Semua">Semua</button>
+          <button class="pill" data-category="Stempel">Stempel</button>
+          <button class="pill" data-category="Sablon Pakaian">Sablon Pakaian</button>
+          <button class="pill" data-category="Cetak Custom">Cetak Custom</button>
+          <button class="pill" data-category="Aksesori">Aksesori</button>
+        </div>
+        <label class="sort-control">Urutkan
+          <select id="sort-select"><option value="featured">Unggulan</option><option value="low">Harga terendah</option><option value="high">Harga tertinggi</option><option value="name">Nama A–Z</option></select>
+        </label>
+      </div>
+      <div class="product-grid" id="product-grid" aria-live="polite"></div>
+      <div class="empty-state hidden" id="empty-state"><span>⌕</span><h3>Produk tidak ditemukan</h3><p>Coba kata kunci atau kategori lainnya.</p><button class="button secondary" id="reset-filters">Reset filter</button></div>
+    </section>
+
+    <section class="promo-banner container" id="promo">
+      <div class="promo-copy"><span class="eyebrow">IDE BAGUS DIMULAI DI SINI</span><h2>Bikin gayamu.<br><span>Ceritakan idemu.</span></h2><p>Produk custom untuk usaha, hadiah, komunitas, dan kebutuhan sehari-hari.</p><a href="#produk" class="button primary">Cari Produk Custom ↗</a></div>
+      <div class="promo-shapes"><div class="shape shape-shirt">✦<small>YOUR<br>DESIGN</small></div><div class="shape shape-box">FN<span>✦</span></div><div class="shape shape-orb"></div></div>
+    </section>
+
+    <section class="section container" id="kategori">
+      <div class="section-heading"><div><span class="eyebrow">TEMUKAN YANG KAMU CARI</span><h2>Belanja berdasarkan <span>kategori</span></h2><p>Pilih kategori untuk menemukan produk yang sesuai.</p></div></div>
+      <div class="category-grid">
+        <button class="category-card cat-orange" data-category="Stempel"><span class="category-emoji">▣</span><b>Stempel</b><small>Stempel untuk kebutuhan usaha</small><span class="category-arrow">↗</span></button>
+        <button class="category-card cat-blue" data-category="Sablon Pakaian"><span class="category-emoji">▤</span><b>Sablon Pakaian</b><small>Ekspresikan gaya kamu</small><span class="category-arrow">↗</span></button>
+        <button class="category-card cat-green" data-category="Cetak Custom"><span class="category-emoji">▧</span><b>Cetak Custom</b><small>Spanduk, foto, kartu nama</small><span class="category-arrow">↗</span></button>
+        <button class="category-card cat-purple" data-category="Aksesori"><span class="category-emoji">✧</span><b>Aksesori</b><small>Detail kecil, gaya maksimal</small><span class="category-arrow">↗</span></button>
+      </div>
+    </section>
+
+    <section class="newsletter container">
+      <div><span class="eyebrow">JANGAN KETINGGALAN</span><h2>Inspirasi dan promo terbaru.</h2><p>Masukkan email untuk simulasi berlangganan info toko.</p></div>
+      <form id="newsletter-form" class="newsletter-form"><input id="newsletter-email" type="email" placeholder="Alamat email kamu" required><button class="button primary" type="submit">Daftar ↗</button></form>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="kontak"><div class="container footer-grid">
+    <div class="footer-brand"><a class="brand" href="#beranda"><span>FN</span> STUDIO</a><p>Solusi produk custom dan kebutuhan pilihanmu. Temukan ide, pilih produk, dan pesan dengan mudah.</p><div class="socials"><a href="#kontak" aria-label="Instagram">◎</a><a href="#kontak" aria-label="TikTok">♪</a><a href="#kontak" aria-label="WhatsApp">☏</a></div></div>
+    <div><h3>Navigasi</h3><a href="#beranda">Beranda</a><a href="#produk">Semua Produk</a><a href="#kategori">Kategori</a><a href="#promo">Promo</a></div>
+    <div><h3>Bantuan</h3><a href="#kontak">Cara Belanja</a><a href="#kontak">Pengiriman</a><a href="#kontak">Pembayaran</a><a href="#kontak">Pertanyaan Umum</a></div>
+    <div><h3>Hubungi Kami</h3><p>✉ hello@fnstudio.example</p><p>☏ WhatsApp: atur nomor toko</p><p>⌖ Banten, Indonesia</p><small>Ganti informasi kontak ini dengan milik tokomu.</small></div>
+  </div><div class="container footer-bottom"><span>© <span id="year"></span> FN STUDIO. Dibuat dengan kreativitas.</span><span>Belanja lebih mudah, setiap hari ✦</span></div></footer>
+
+  <div class="overlay hidden" id="overlay"></div>
+  <aside class="side-panel" id="cart-panel" aria-label="Keranjang belanja" aria-hidden="true">
+    <div class="panel-head"><div><span class="eyebrow">PESANANMU</span><h2>Keranjang <span>Belanja</span></h2></div><button class="close-button" data-close aria-label="Tutup keranjang">×</button></div>
+    <div class="cart-items" id="cart-items"></div>
+    <div class="cart-footer"><div class="total-row"><span>Subtotal</span><strong id="cart-subtotal">Rp0</strong></div><small>Biaya pengiriman dikonfirmasi saat pemesanan.</small><button class="button primary full" id="checkout-button">Lanjut Pesan via WhatsApp ↗</button><button class="button secondary full" data-close>Lanjut Belanja</button></div>
+  </aside>
+
+  <dialog class="product-dialog" id="product-dialog"><button class="close-button dialog-close" data-dialog-close aria-label="Tutup detail">×</button><div id="product-detail"></div></dialog>
+  <dialog class="checkout-dialog" id="checkout-dialog"><button class="close-button dialog-close" data-dialog-close aria-label="Tutup checkout">×</button><span class="eyebrow">SATU LANGKAH LAGI</span><h2>Detail <span>Pemesanan</span></h2><p class="muted">Isi data berikut sebelum melanjutkan ke WhatsApp.</p>
+    <form id="checkout-form" class="checkout-form">
+      <label>Nama lengkap<input name="name" required placeholder="Nama penerima"></label>
+      <label>Nomor WhatsApp<input name="phone" required inputmode="tel" placeholder="08xxxxxxxxxx"></label>
+      <label>Alamat pengiriman<textarea name="address" required rows="3" placeholder="Alamat lengkap"></textarea></label>
+      <label>Catatan pesanan <span class="muted">(opsional)</span><textarea name="notes" rows="2" placeholder="Warna, ukuran, atau permintaan khusus"></textarea></label>
+      <div class="checkout-total"><span>Total produk</span><strong id="checkout-total">Rp0</strong></div>
+      <button class="button primary full" type="submit">Kirim Pesanan ke WhatsApp ↗</button>
+      <small class="muted">Demo front-end: nomor WhatsApp toko perlu diatur di js/script.js.</small>
+    </form>
+  </dialog>
+  <dialog class="account-dialog" id="account-dialog"><button class="close-button dialog-close" data-dialog-close aria-label="Tutup akun">×</button><div class="account-icon">♙</div><span class="eyebrow">SELAMAT DATANG</span><h2>Akun <span>FN STUDIO</span></h2><p class="muted">Ini demo tampilan akun. Login sungguhan memerlukan backend.</p><form id="account-form" class="checkout-form"><label>Email<input type="email" required placeholder="email@contoh.com"></label><label>Password<input type="password" required minlength="4" placeholder="Minimal 4 karakter"></label><button class="button primary full" type="submit">Demo Masuk</button></form></dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
